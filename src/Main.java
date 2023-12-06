@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Stream;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -42,12 +42,12 @@ public class Main {
     }
 
     public static void withStream(List numbers) {
-        Stream<Integer> stream = numbers.stream()
+        System.out.println(numbers.stream()
                 .filter(x -> (int) x > 0)
                 .filter(x -> (int) x % 2 == 0)
-                .sorted(Comparator.naturalOrder());
-        Object[] list = stream.toArray();
-        System.out.println(Arrays.toString(list));
+                .sorted(Comparator.naturalOrder())
+                .collect(Collectors.toList())
+        );
     }
 
 }
